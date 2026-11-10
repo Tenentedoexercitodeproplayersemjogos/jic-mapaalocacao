@@ -6,6 +6,13 @@ O site original é uma página WordPress/Elementor cujo conteúdo é uma única
 ferramenta HTML/CSS/JS ("Mapa de Alocação"). Este clone reproduz a ferramenta
 sem WordPress, sem Elementor e sem os scripts de otimização/rastreamento.
 
+## Site publicado
+
+<https://tenentedoexercitodeproplayersemjogos.github.io/jic-mapaalocacao/>
+
+Hospedado gratuitamente no GitHub Pages, com uso ilimitado, sem contador e sem
+prazo de expiração.
+
 ## Estrutura
 
 ```
@@ -16,6 +23,7 @@ jic-mapaalocacao/
 │   ├── app.js          # lógica dos 4 passos, cálculo e resultado
 │   ├── fonts/          # Anton e Inter (woff2 + woff)
 │   └── img/            # favicons
+├── .nojekyll           # serve os arquivos estáticos sem processar Jekyll
 ├── _source/
 │   └── original.html   # snapshot original (referência local, não publicado)
 └── README.md
@@ -23,40 +31,26 @@ jic-mapaalocacao/
 
 ## Publicação
 
-Site publicado no GitHub Pages:
+O deploy é feito diretamente da branch `main`, na raiz do repositório, sem
+build. O GitHub Pages publica `index.html` e a pasta `assets/` como estão.
 
-<https://tenentedoexercitodeproplayersemjogos.github.io/jic-mapaalocacao/>
+Para atualizar o site:
 
-O deploy é feito a partir da branch `main` (raiz do repositório), com
-`.nojekyll` para servir os arquivos estáticos sem processamento do Jekyll.
+```bash
+git add .
+git commit -m "Atualiza o site"
+git push origin main
+```
 
-## Deploy no Cloudflare Pages (via GitHub)
+O GitHub Pages atualiza automaticamente em alguns instantes.
 
-O repositório também está pronto para o Cloudflare Pages:
+### Domínio próprio (opcional)
 
-- **Production branch:** `main`
-- **Build command:** `bash cloudflare-build.sh`
-- **Build output directory:** `dist`
-- **Root directory:** deixar vazio
+Se quiser um link sem o nome de usuário, configure um domínio em
+**Settings → Pages → Custom domain**. O domínio precisa estar configurado no
+DNS e o certificado HTTPS é emitido pelo próprio GitHub Pages.
 
-O script `cloudflare-build.sh` gera `dist/` com `index.html`, `assets/` e
-`_headers`, sem publicar README, `.gitignore` ou arquivos de desenvolvimento.
-
-## Deploy no Cloudflare Workers (via GitHub)
-
-O Cloudflare atualmente recomenda Workers para projetos novos. O repositório
-já tem `wrangler.jsonc` apontando para `dist/`:
-
-- **Production branch:** `main`
-- **Build command:** `bash cloudflare-build.sh`
-- **Deploy command:** `npx wrangler deploy`
-- **Root directory:** deixar vazio
-- **Nome do Worker:** `jic-mapaalocacao` (igual ao `name` do `wrangler.jsonc`)
-
-O build gera `dist/`; o Wrangler publica os arquivos estáticos. Requests para
-arquivos estáticos são gratuitos e ilimitados no plano free.
-
-## Como rodar
+## Como rodar localmente
 
 ```bash
 cd jic-mapaalocacao

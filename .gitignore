@@ -1,6 +1,3 @@
 _source/
-dist/
-.wrangler/
-.dev.vars*
 .DS_Store
 Thumbs.db
