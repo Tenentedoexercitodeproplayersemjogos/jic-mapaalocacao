@@ -30,6 +30,18 @@ Site publicado no GitHub Pages:
 O deploy é feito a partir da branch `main` (raiz do repositório), com
 `.nojekyll` para servir os arquivos estáticos sem processamento do Jekyll.
 
+## Deploy no Cloudflare Pages (via GitHub)
+
+O repositório também está pronto para o Cloudflare Pages:
+
+- **Production branch:** `main`
+- **Build command:** `bash cloudflare-build.sh`
+- **Build output directory:** `dist`
+- **Root directory:** deixar vazio
+
+O script `cloudflare-build.sh` gera `dist/` com `index.html`, `assets/` e
+`_headers`, sem publicar README, `.gitignore` ou arquivos de desenvolvimento.
+
 ## Como rodar
 
 ```bash
