@@ -220,7 +220,21 @@ function planoAportes(d){
 }
 
 /* ===================== RENDER ===================== */
+/* relê todos os campos antes de calcular: evita resultado preso quando o
+   usuário volta, altera valores e gera o mapa de novo */
+function syncState(){
+  S.gasto=num($("#ma_gasto").value);
+  S.reserva=num($("#ma_reserva").value);
+  var sel=$("#ma_perfil .opt.sel");
+  if (sel) S.perfil=sel.dataset.p;
+  S.rf=num($("#ma_c_rf").value); S.fii=num($("#ma_c_fii").value); S.acao=num($("#ma_c_acao").value);
+  S.int=num($("#ma_c_int").value); S.out=num($("#ma_c_out").value);
+  S.maior=num($("#ma_maior").value); S.nFii=num($("#ma_n_fii").value);
+  S.nAcao=num($("#ma_n_acao").value); S.aporte=num($("#ma_aporte").value);
+}
+
 function render(){
+  syncState();
   var d = diagnostico(), P = PERFIS[S.perfil];
 
   $("#ma_r_perfil").textContent = "Perfil " + P.nome + " · horizonte " + P.horizonte;
@@ -339,5 +353,8 @@ function copiar(txt){
 
 check();
 track("abriu", {passo:0});
+
+/* se o navegador restaurar a página do cache, revalida os botões */
+window.addEventListener("pageshow", function(){ check(); });
 
 })();
