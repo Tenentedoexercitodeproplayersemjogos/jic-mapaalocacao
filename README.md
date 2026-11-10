@@ -42,6 +42,20 @@ O repositório também está pronto para o Cloudflare Pages:
 O script `cloudflare-build.sh` gera `dist/` com `index.html`, `assets/` e
 `_headers`, sem publicar README, `.gitignore` ou arquivos de desenvolvimento.
 
+## Deploy no Cloudflare Workers (via GitHub)
+
+O Cloudflare atualmente recomenda Workers para projetos novos. O repositório
+já tem `wrangler.jsonc` apontando para `dist/`:
+
+- **Production branch:** `main`
+- **Build command:** `bash cloudflare-build.sh`
+- **Deploy command:** `npx wrangler deploy`
+- **Root directory:** deixar vazio
+- **Nome do Worker:** `jic-mapaalocacao` (igual ao `name` do `wrangler.jsonc`)
+
+O build gera `dist/`; o Wrangler publica os arquivos estáticos. Requests para
+arquivos estáticos são gratuitos e ilimitados no plano free.
+
 ## Como rodar
 
 ```bash
