@@ -1,5 +1,7 @@
 # Observações
 
+**Site do youtuber Bruno OM.**
+
 **Site publicado:** <https://tenentedoexercitodeproplayersemjogos.github.io/jic-mapaalocacao/>
 
 Este repositório contém apenas o site estático e estas observações.
