@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>[JIC] Mapa de Alocação - Bruno</title>
+  <meta name="description" content="Ferramenta exclusiva dos alunos da Jornada do Investidor Comum. Em 3 minutos você vê quanto da sua carteira está fora do lugar — e o que fazer com os próximos aportes.">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="[JIC] Mapa de Alocação - Bruno">
+  <meta property="og:description" content="Ferramenta exclusiva dos alunos da Jornada do Investidor Comum. Em 3 minutos você vê quanto da sua carteira está fora do lugar — e o que fazer com os próximos aportes.">
+  <meta property="og:url" content="https://tenentedoexercitodeproplayersemjogos.github.io/jic-mapaalocacao/">
+  <meta property="og:site_name" content="Bruno">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/img/favicon-150.webp" sizes="32x32">
+  <link rel="icon" href="assets/img/favicon-300.webp" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/img/favicon-300.webp">
+
+  <link rel="preload" href="assets/fonts/anton-v27-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-v20-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="assets/style.css">
+
+  <style>
+    html, body { margin: 0; padding: 0; }
+    body { background: #F4F1EA; }
+    .page { min-height: 100vh; background: #000; }
+  </style>
+</head>
+<body>
+  <div class="page">
+<div id="mapa-alocacao">
+
+<div class="tarja-jic">
+  Ferramenta exclusiva dos alunos da <b>Jornada do Investidor Comum</b>
+</div>
+
+<div class="wrap">
+
+<div class="ma-head">
+  <p class="eyebrow">Semana Destravando seus Investimentos &middot; Aula 1</p>
+  <h1>Mapa de <span>Alocação</span></h1>
+  <p class="sub">Em 3 minutos você vê quanto da sua carteira está fora do lugar — e o que fazer com os próximos aportes.</p>
+</div>
+
+<div class="prog" id="ma_prog"></div>
+
+<!-- ============ PASSO 1 ============ -->
+<section class="step active" data-step="0">
+  <p class="stepnum">Passo 1 de 4</p>
+  <h2>Antes da carteira: a reserva</h2>
+  <p class="hint">Reserva de emergência não faz parte da carteira de investimentos. Ela é o que impede você de vender um bom ativo na pior hora.</p>
+
+  <div class="field">
+    <label for="ma_gasto">Quanto sai da sua conta por mês?</label>
+    <span class="lh">Custo de vida total: contas, mercado, financiamentos.</span>
+    <div class="inp"><span class="cur">R$</span><input type="text" id="ma_gasto" inputmode="numeric" placeholder="5.000" autocomplete="off"></div>
+  </div>
+
+  <div class="field">
+    <label for="ma_reserva">Quanto você tem em liquidez imediata?</label>
+    <span class="lh">Dinheiro que sai hoje: Tesouro Selic, CDB com liquidez diária, conta remunerada.</span>
+    <div class="inp"><span class="cur">R$</span><input type="text" id="ma_reserva" inputmode="numeric" placeholder="15.000" autocomplete="off"></div>
+  </div>
+
+  <div class="nav"><button type="button" class="go" data-next>Continuar</button></div>
+</section>
+
+<!-- ============ PASSO 2 ============ -->
+<section class="step" data-step="1">
+  <p class="stepnum">Passo 2 de 4</p>
+  <h2>Qual é o seu momento?</h2>
+  <p class="hint">A proporção entre renda fixa e renda variável não depende de perfil psicológico. Depende de quanto tempo falta até você precisar desse dinheiro.</p>
+
+  <div class="opts" id="ma_perfil">
+    <button type="button" class="opt" data-p="fundacao"><b>Mais de 15 anos</b><small>Ainda estou longe de viver dessa renda. Foco total em acumular.</small></button>
+    <button type="button" class="opt" data-p="construcao"><b>De 8 a 15 anos</b><small>Já enxergo a chegada, mas ainda tenho tempo de recuperar oscilação.</small></button>
+    <button type="button" class="opt" data-p="transicao"><b>De 3 a 7 anos</b><small>Estou na reta final. Não posso mais depender de um ciclo de alta.</small></button>
+    <button type="button" class="opt" data-p="colheita"><b>Menos de 3 anos, ou já vivo dela</b><small>Essa carteira precisa pagar contas, não só crescer.</small></button>
+  </div>
+
+  <div class="nav"><button type="button" class="back" data-back>Voltar</button><button type="button" class="go" data-next disabled>Continuar</button></div>
+</section>
+
+<!-- ============ PASSO 3 ============ -->
+<section class="step" data-step="2">
+  <p class="stepnum">Passo 3 de 4</p>
+  <h2>Sua carteira hoje</h2>
+  <p class="hint">Valores aproximados já bastam. Deixe em branco o que você não tem.</p>
+
+  <div class="field">
+    <label for="ma_c_rf">Renda fixa</label>
+    <span class="lh">Tesouro, CDB, LCI, LCA, debênture. Sem contar a reserva do Passo 1.</span>
+    <div class="inp"><span class="cur">R$</span><input type="text" id="ma_c_rf" inputmode="numeric" placeholder="0" autocomplete="off"></div>
+  </div>
+  <div class="field">
+    <label for="ma_c_fii">Fundos imobiliários</label>
+    <div class="inp"><span class="cur">R$</span><input type="text" id="ma_c_fii" inputmode="numeric" placeholder="0" autocomplete="off"></div>
+  </div>
+  <div class="field">
+    <label for="ma_c_acao">Ações brasileiras</label>
+    <div class="inp"><span class="cur">R$</span><input type="text" id="ma_c_acao" inputmode="numeric" placeholder="0" autocomplete="off"></div>
+  </div>
+  <div class="field">
+    <label for="ma_c_int">Internacional</label>
+    <span class="lh">ETF de índice global (IVVB11 e similares), BDR, conta no exterior.</span>
+    <div class="inp"><span class="cur">R$</span><input type="text" id="ma_c_int" inputmode="numeric" placeholder="0" autocomplete="off"></div>
+  </div>
+  <div class="field">
+    <label for="ma_c_out">Outros</label>
+    <span class="lh">Cripto, previdência privada, poupança, fundos multimercado, COE.</span>
+    <div class="inp"><span class="cur">R$</span><input type="text" id="ma_c_out" inputmode="numeric" placeholder="0" autocomplete="off"></div>
+  </div>
+
+  <div class="nav"><button type="button" class="back" data-back>Voltar</button><button type="button" class="go" data-next disabled>Continuar</button></div>
+</section>
+
+<!-- ============ PASSO 4 ============ -->
+<section class="step" data-step="3">
+  <p class="stepnum">Passo 4 de 4</p>
+  <h2>O teste de concentração</h2>
+  <p class="hint">Ter vários ativos não é o mesmo que estar diversificado. É aqui que a maioria descobre um risco que nunca escolheu correr.</p>
+
+  <div class="field">
+    <label for="ma_maior">Sua maior posição individual</label>
+    <span class="lh">Quanto vale o seu maior ativo sozinho — um FII, uma ação, um CDB específico.</span>
+    <div class="inp"><span class="cur">R$</span><input type="text" id="ma_maior" inputmode="numeric" placeholder="20.000" autocomplete="off"></div>
+  </div>
+  <div class="field">
+    <label for="ma_n_fii">Quantos FIIs diferentes você tem?</label>
+    <input class="plain" type="text" id="ma_n_fii" inputmode="numeric" placeholder="0" autocomplete="off">
+  </div>
+  <div class="field">
+    <label for="ma_n_acao">Quantas ações brasileiras diferentes?</label>
+    <input class="plain" type="text" id="ma_n_acao" inputmode="numeric" placeholder="0" autocomplete="off">
+  </div>
+  <div class="field">
+    <label for="ma_aporte">Quanto você consegue aportar por mês?</label>
+    <span class="lh">É com isso que a gente monta o plano de correção sem precisar vender nada.</span>
+    <div class="inp"><span class="cur">R$</span><input type="text" id="ma_aporte" inputmode="numeric" placeholder="1.000" autocomplete="off"></div>
+  </div>
+
+  <div class="nav"><button type="button" class="back" data-back>Voltar</button><button type="button" class="go" data-next disabled>Ver meu mapa</button></div>
+</section>
+
+<!-- ============ RESULTADO ============ -->
+<section class="step" data-step="4">
+  <p class="stepnum" id="ma_r_perfil">Resultado</p>
+  <h2 id="ma_r_titulo">Seu mapa de alocação</h2>
+
+  <div id="ma_r_verdict"></div>
+  <div id="ma_r_desvio"></div>
+
+  <p class="kicker">Onde seu dinheiro está × onde deveria estar</p>
+  <div class="bars" id="ma_r_bars"></div>
+
+  <p class="kicker">O que o mapa mostrou</p>
+  <div id="ma_r_flags"></div>
+
+  <p class="kicker">Plano dos próximos 6 aportes</p>
+  <div class="plan" id="ma_r_plan"></div>
+
+  <div class="cta">
+    <h3>Sua carteira na mesa, ao vivo</h3>
+    <p>Na Aula 4 eu abro carteiras reais na tela e mostro, uma a uma, o que ajustar. A sua pode ser uma delas.</p>
+    <a class="btn" href="https://bit.ly/SDI_formraiox" target="_blank" rel="noopener">Enviar minha carteira pro Raio-X</a>
+    <button type="button" class="ghost" id="ma_r_copy">Copiar meu resultado</button>
+    <div class="summary" id="ma_r_sum"></div>
+  </div>
+
+  <div class="nav"><button type="button" class="back" data-back>Refazer</button></div>
+
+  <p class="foot">
+    <b>Como ler isso.</b> Este mapa é material educacional da Semana Destravando seus Investimentos. Ele mostra proporções e desvios com base no que você informou — não é recomendação personalizada de compra ou venda de ativos, nem substitui a sua própria análise. Rentabilidade passada não garante rentabilidade futura.
+  </p>
+</section>
+
+</div>
+</div>
+  </div>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>
