@@ -320,7 +320,7 @@ function render(){
   }
 
   var resumo =
-    "MAPA DE ALOCAÇÃO — Semana Destravando seus Investimentos\n"+
+    "MAPA DE ALOCAÇÃO — Resultado\n"+
     "Perfil: "+P.nome+" (horizonte "+P.horizonte+")\n"+
     "Carteira: "+brl(d.T)+"\n"+
     "Nível de concentração: "+d.nivel.t+"\n"+
