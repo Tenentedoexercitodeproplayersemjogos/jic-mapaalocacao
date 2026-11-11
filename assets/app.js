@@ -56,11 +56,11 @@ function alvos(p){
   return {rf:rf, fii:t, acao:t, int:t, out:0};
 }
 var CLASSES = [
-  {k:"rf",   nome:"Renda fixa",         cor:"#7FB8E6"},
-  {k:"fii",  nome:"Fundos imobiliários",cor:"#5BDF3F"},
-  {k:"acao", nome:"Ações brasileiras",  cor:"#B8E68C"},
-  {k:"int",  nome:"Internacional",      cor:"#C9A24D"},
-  {k:"out",  nome:"Outros",             cor:"#8a8f80"}
+  {k:"rf",   nome:"Renda fixa",         cor:"#60A5FA"},
+  {k:"fii",  nome:"Fundos imobiliários",cor:"#22D3EE"},
+  {k:"acao", nome:"Ações brasileiras",  cor:"#A78BFA"},
+  {k:"int",  nome:"Internacional",      cor:"#F5B85C"},
+  {k:"out",  nome:"Outros",             cor:"#94A3B8"}
 ];
 
 /* ===================== ESTADO ===================== */
@@ -272,8 +272,8 @@ function render(){
       (c.k==="out"?"":'<div class="tgt" style="left:'+(t/maxEsc*100)+'%"></div>')+'</div>'+
       '<p class="delta '+cls+'">'+msg+(c.k==="out"?"":" · alvo "+pct(t))+'</p></div>';
   }).join("") +
-  '<div class="legend"><span><i style="background:var(--lime)"></i>onde está hoje</span>'+
-  '<span><i style="background:var(--gold)"></i>onde deveria estar</span></div>';
+  '<div class="legend"><span><i style="background:var(--accent)"></i>onde está hoje</span>'+
+  '<span><i style="background:var(--secondary)"></i>onde deveria estar</span></div>';
 
   var F = [];
   var mesesTxt = (Math.round(d.mesesRes*10)/10).toLocaleString("pt-BR");
